@@ -18,15 +18,15 @@ class store {
         this.value = value;
     }
 
-    alertInput() {
-        if (this.value) {
-            alert(this.value);
+    alertInput(value: string) {
+        if (value) {
+            alert(value);
         }
     }
 
-    alertNumber() {
-        if (this.value && !isNaN(+this.value)) {
-            alert(+this.value);
+    alertNumber(value: string) {
+        if (value && !isNaN(+value)) {
+            alert(+value);
         }
     }
 
