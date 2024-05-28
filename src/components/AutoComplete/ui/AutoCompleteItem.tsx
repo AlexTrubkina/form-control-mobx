@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
 import { observer } from "mobx-react-lite";
-import { store } from "types";
+import { autoCompleteStore, store } from "types";
 
-export const AutoCompleteItem = observer(({store, name, fullName, img}: {store: store,name: string, fullName: string, img: string}): ReactElement => {
+export const AutoCompleteItem = observer(({store, name, fullName, img}: {store: autoCompleteStore,name: string, fullName: string, img: string}): ReactElement => {
 
     const handleClick = () => {
         store.changeValue(`${name} - ${fullName}`);

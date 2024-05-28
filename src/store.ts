@@ -3,7 +3,41 @@ import { CountryInfo } from "types";
 
 class store {
     value: string = "";
-    autocomplete : CountryInfo[] = [];
+
+    constructor() {
+        makeObservable(this, {
+            value: observable,
+            changeValue: action,
+            getValue: computed,
+            alertInput: action,
+            alertNumber: action,
+        });
+    }
+
+    changeValue(value: string) {
+        this.value = value;
+    }
+
+    alertInput() {
+        if (this.value) {
+            alert(this.value);
+        }
+    }
+
+    alertNumber() {
+        if (this.value && !isNaN(+this.value)) {
+            alert(+this.value);
+        }
+    }
+
+    get getValue() {
+        return this.value;
+    }
+}
+
+class autoCompleteStore {
+    value: string = "";
+    autocomplete: CountryInfo[] = [];
 
     constructor() {
         makeObservable(this, {
@@ -11,10 +45,7 @@ class store {
             autocomplete: observable,
             changeValue: action,
             changeAutocomplete: action,
-            getValue: computed, 
-            alertInput: action,
-            alertNumber: action
-        })
+        });
     }
 
     changeValue(value: string) {
@@ -24,24 +55,8 @@ class store {
     changeAutocomplete(value: CountryInfo[]) {
         this.autocomplete = value;
     }
-    alertInput () {
-        if (this.value) {
-            alert(this.value);
-        }
-        
-    }
-
-    alertNumber () {
-        if (this.value && !isNaN(+this.value)) {
-            alert(+this.value);
-        }
-        
-    }
-
-    get getValue() {
-        return this.value;
-    }
 }
 
 const storeInstance = new store();
-export default storeInstance
+const autoCompleteInstance = new autoCompleteStore();
+export { autoCompleteInstance, storeInstance };
