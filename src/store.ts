@@ -11,7 +11,9 @@ class store {
             autocomplete: observable,
             changeValue: action,
             changeAutocomplete: action,
-            getValue: computed
+            getValue: computed, 
+            alertInput: action,
+            alertNumber: action
         })
     }
 
@@ -21,6 +23,19 @@ class store {
 
     changeAutocomplete(value: CountryInfo[]) {
         this.autocomplete = value;
+    }
+    alertInput () {
+        if (this.value) {
+            alert(this.value);
+        }
+        
+    }
+
+    alertNumber () {
+        if (this.value && !isNaN(+this.value)) {
+            alert(+this.value);
+        }
+        
     }
 
     get getValue() {
