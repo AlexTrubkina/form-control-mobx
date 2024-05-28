@@ -1,0 +1,20 @@
+.form-control {
+    display: flex;
+    gap: 10px;
+    margin-top: 80px;
+    &__input {
+        background: #303030; 
+        border-radius: 19px; 
+        border: 1px rgba(255, 255, 255, 0.12) solid;
+        color: #AEAEAE;
+        min-height: 30px;
+        padding: 10px 15px;
+        width: 80%;
+        
+        &:focus {
+            outline: none;
+            border: 2px solid #898888;
+        }
+    }
+    
+}
